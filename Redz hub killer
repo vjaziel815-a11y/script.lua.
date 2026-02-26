@@ -1,13 +1,10 @@
 local CorrectKey = "998"
 
 local function MainScript()
-    -- AQUÍ CARGAMOS UN MOTOR DE FARM REAL PARA BLOX FRUITS
-    _G.AutoFarm = false
-    
     local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
     local Window = Fluent:CreateWindow({
         Title = "Superior Hub | Jorge VIP",
-        SubTitle = "👑 MODO DIOS ACTIVADO",
+        SubTitle = "👑 REDZ KILLER ACTIVADO",
         TabWidth = 160,
         Size = UDim2.fromOffset(580, 460),
         Acrylic = true,
@@ -17,41 +14,32 @@ local function MainScript()
     local Tabs = { Main = Window:AddTab({ Title = "Farm 🚜", Icon = "home" }) }
 
     Tabs.Main:AddToggle("AutoFarm", {
-        Title = "Auto Farm Level (SÍ SIRVE)",
+        Title = "Activar Auto Farm (SIN ERROR)",
         Default = false,
         Callback = function(Value)
-            _G.AutoFarm = Value
-            -- Este es el link a un script potente de farm
             if Value then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/RealHaze/Haze-Hub/main/Main.lua"))()
+                -- ESTE ES EL MOTOR QUE SÍ ESTÁ ACTIVO
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/main/Source.lua"))()
             end
         end
     })
 end
 
--- SISTEMA DE LLAVE (IGUAL QUE ANTES)
+-- SISTEMA DE LLAVE
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextBox = Instance.new("TextBox")
 local TextButton = Instance.new("TextButton")
+
 ScreenGui.Parent = game.CoreGui
 Frame.Parent = ScreenGui
 Frame.Size = UDim2.new(0, 200, 0, 100)
 Frame.Position = UDim2.new(0.5, -100, 0.5, -50)
 Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.Active = true
+Frame.Draggable = true
+
 TextBox.Parent = Frame
 TextBox.Size = UDim2.new(0.8, 0, 0.3, 0)
 TextBox.Position = UDim2.new(0.1, 0, 0.2, 0)
-TextBox.PlaceholderText = "Key: 998"
-TextButton.Parent = Frame
-TextButton.Size = UDim2.new(0.6, 0, 0.3, 0)
-TextButton.Position = UDim2.new(0.2, 0, 0.6, 0)
-TextButton.Text = "ENTRAR"
-TextButton.BackgroundColor3 = Color3.fromRGB(0, 150, 0)
-
-TextButton.MouseButton1Click:Connect(function()
-    if TextBox.Text == CorrectKey then
-        ScreenGui:Destroy()
-        MainScript()
-    end
-end)
+TextBox.PlaceholderText = "Key:
