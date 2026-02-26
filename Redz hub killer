@@ -1,0 +1,42 @@
+local CorrectKey = "998" -- AQUÍ ESTÁ TU LLAVE JORGE
+
+local function MainScript()
+    local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
+    local Window = Fluent:CreateWindow({
+        Title = "Superior Hub | Jorge VIP",
+        SubTitle = "👑 KEY SYSTEM ACTIVADO",
+        TabWidth = 160,
+        Size = UDim2.fromOffset(580, 460),
+        Acrylic = true, 
+        Theme = "Darker",
+        MinimizeKey = Enum.KeyCode.LeftControl
+    })
+
+    Fluent:Notify({
+        Title = "¡Acceso Concedido!",
+        Content = "Bienvenido Jorge, la llave es correcta.",
+        Duration = 5
+    })
+
+    local Tabs = {
+        Main = Window:AddTab({ Title = "Farm 🚜", Icon = "home" }),
+        Combat = Window:AddTab({ Title = "PvP God ⚔️", Icon = "sword" }),
+        Settings = Window:AddTab({ Title = "Config ⚙️", Icon = "settings" })
+    }
+
+    Tabs.Main:AddToggle("AutoFarm", {Title = "Auto Farm Level", Default = false})
+    Tabs.Combat:AddSlider("Hitbox", {Title = "Hitbox", Default = 30, Min = 0, Max = 100, Rounding = 1, Callback = function(V) _G.HitboxSize = V end})
+    
+    Window:SelectTab(1)
+end
+
+-- INTERFAZ DE LA LLAVE (LO QUE SALE AL PRINCIPIO)
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextBox = Instance.new("TextBox")
+local TextButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+ScreenGui.Parent = game.CoreGui
+Frame.Parent = ScreenGui
